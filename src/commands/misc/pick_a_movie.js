@@ -6,10 +6,12 @@ module.exports = {
     // options: Object[],
     // deleted: Boolean
     callback: (client, interaction)=>{
-        if(interaction.user.id == process.env.MACS_ID){
+        // if mac requests a movie
+        if(interaction.user.id == '517890264585732126'){
             interaction.reply('The Notebook');
         }
-        else if(interaction.user.id == process.env.SYDS_ID){
+        // if syd requests a movie
+        else if(interaction.user.id == '711753649952653316'){
             interaction.reply('La La Land');
         }
         else{
@@ -43,5 +45,6 @@ module.exports = {
             ];
             interaction.reply(movies[Math.floor(Math.random()*movies.length)]);
         }
+        console.log(`User: ${interaction.user.globalName} called command: ${interaction.commandName}`);
     }
 }
